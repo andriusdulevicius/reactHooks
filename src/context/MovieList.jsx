@@ -2,7 +2,15 @@ import React, { Component } from 'react';
 import UserContext from './UserContext';
 
 class MovieList extends Component {
-  state = {};
+  static contextType = UserContext;
+
+  componentDidMount() {
+    console.log('MovieList mounted to DOM');
+    console.log('priemas prie context ne renderyje', this.context);
+    //kad veiktu reikia apacioje pries exporta prideti eilute
+    //arba paduodant kaip statini rodikli
+  }
+
   render() {
     return (
       <UserContext.Consumer>
@@ -20,5 +28,5 @@ class MovieList extends Component {
     );
   }
 }
-
+// MovieList.contextType = UserContext;
 export default MovieList;
