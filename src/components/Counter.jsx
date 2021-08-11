@@ -1,13 +1,12 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
+import useDocumentTitle from './../hook/useDocumentTitle';
 
 export default function Counter() {
   const [count, setCount] = useState(0);
   const [name, setName] = useState('Bob');
 
-  useEffect(() => {
-    console.log('useEffect');
-    document.title = `${name} has clicked ${count} times`;
-  });
+  // custom user hook
+  useDocumentTitle(`${name} has clicked ${count} times`);
 
   return (
     <div>
